@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ダイエット顧客管理システム プレビュー</title>
+    <style>
+      :root {
+        --bg: #f6f4f1;
+        --surface: #fff;
+        --text: #2a2622;
+        --muted: #7a7169;
+        --line: #e7e1da;
+        --primary: #e0703a;
+        --primary-soft: #fdeee5;
+        --warn-soft: #fbf1dc;
+        --shadow: 0 1px 2px rgba(40, 30, 20, 0.06), 0 2px 8px rgba(40, 30, 20, 0.04);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+        line-height: 1.7;
+        font-size: 15px;
+        -webkit-text-size-adjust: 100%;
+      }
+      main { max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+      h1 { font-size: 22px; line-height: 1.4; margin: 0 0 4px; }
+      h2 { font-size: 17px; margin: 32px 0 10px; }
+      .lead { color: var(--muted); margin: 0 0 20px; }
+      .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      @media (max-width: 560px) { .entries { grid-template-columns: 1fr; } }
+      .entry {
+        display: block;
+        background: var(--surface);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        text-decoration: none;
+        color: inherit;
+        border: 2px solid transparent;
+      }
+      .entry:hover { border-color: var(--primary); }
+      .entry .tag { font-size: 12px; color: var(--primary); font-weight: 700; }
+      .entry .name { font-size: 18px; font-weight: 700; margin: 2px 0 6px; }
+      .entry .desc { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+      .entry .go {
+        display: inline-block;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .account {
+        font-size: 13px;
+        background: var(--primary-soft);
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin: 0 0 12px;
+      }
+      code { font-family: ui-monospace, Menlo, monospace; font-weight: 700; }
+      ol { padding-left: 1.4em; margin: 0; }
+      ol li + li { margin-top: 6px; }
+      .card { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 16px 18px; }
+      .note { background: var(--warn-soft); border-radius: 14px; padding: 14px 18px; font-size: 14px; }
+      .note ul { margin: 0; padding-left: 1.2em; }
+      .reset {
+        margin-top: 12px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        border-radius: 10px;
+        padding: 8px 14px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .done { color: #2f8f5b; font-size: 13px; margin-left: 8px; }
+      footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 32px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>ダイエット顧客管理システム<br />プレビュー</h1>
+      <p class="lead">お客様が毎日の体重と食事を記録し、スタッフがスマートフォンで経過を確認するためのシステムです。実際に操作してお試しください。</p>
+
+      <div class="entries">
+        <a class="entry" href="admin.html">
+          <div class="tag">店舗スタッフ用</div>
+          <div class="name">管理画面</div>
+          <p class="desc">未回答の確認、体重グラフ、食事の内容、スタッフメモなど</p>
+          <div class="account">ID <code>owner</code> ／ パスワード <code>demo1234</code><br />（スタッフ権限で試す場合は ID <code>kato</code>）</div>
+          <span class="go">管理画面を開く</span>
+        </a>
+        <a class="entry" href="checkin.html#demo-yamada-hanako">
+          <div class="tag">お客様用</div>
+          <div class="name">記録フォーム</div>
+          <p class="desc">「山田 花子様」に届く専用URLの例です。お名前を入力しなくても、開くだけで本人の記録になります。</p>
+          <span class="go">記録フォームを開く</span>
+        </a>
+      </div>
+
+      <h2>おすすめの試し方</h2>
+      <div class="card">
+        <ol>
+          <li>記録フォームで今日の体重と食事を入力し、「記録を送信する」を押します（写真も付けられます）。</li>
+          <li>管理画面にログインし、ホームの「優先確認リスト」を見ます。未回答が続いている方や、相談が書き込まれた方が上に並びます。</li>
+          <li>山田 花子さんを開き、今日の記録・グラフ・日別の表に反映されていることを確認します。</li>
+          <li>もう一度記録フォームで同じ日を送り直すと、管理画面の「過去の記録」で修正前の内容も確認できます。</li>
+          <li>「＋ 顧客登録」から新しいお客様を登録し、発行された専用URLを開いてみます。</li>
+        </ol>
+      </div>
+
+      <h2>プレビューについて</h2>
+      <div class="note">
+        <ul>
+          <li>表示されているお客様と記録は、すべて架空のデータです。</li>
+          <li>入力した内容は、ご覧になっている端末のブラウザにだけ保存されます。他の方には見えません。</li>
+          <li>そのため、発行した専用URLを別の方のスマートフォンに送っても開けません。本番版では、お客様のスマートフォンから記録できます。</li>
+          <li>まだお決めいただいていない仕様は、仕様確認シートの推奨案で仮に作っています。</li>
+        </ul>
+        <button class="reset" type="button" id="reset">デモデータを最初の状態に戻す</button><span class="done" id="done" hidden>戻しました</span>
+      </div>
+
+      <footer>このページは確認用です。検索エンジンには表示されません。</footer>
+    </main>
+    <script>
+      document.getElementById('reset').addEventListener('click', function () {
+        if (!confirm('入力した内容を消して、最初の状態に戻しますか？')) return;
+        try {
+          for (var i = localStorage.length - 1; i >= 0; i--) {
+            var k = localStorage.key(i);
+            if (k && (k.indexOf('diet-demo') === 0 || k.indexOf('checkin-draft:') === 0)) localStorage.removeItem(k);
+          }
+        } catch (e) {}
+        document.getElementById('done').hidden = false;
+      });
+    </script>
+  </body>
+</html>
