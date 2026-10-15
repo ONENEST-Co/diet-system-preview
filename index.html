@@ -94,10 +94,10 @@
           <div class="tag">店舗スタッフ用</div>
           <div class="name">管理画面</div>
           <p class="desc">未回答の確認、体重グラフ、食事の内容、スタッフメモなど</p>
-          <div class="account">ID <code>owner</code> ／ パスワード <code>demo1234</code><br />（スタッフ権限で試す場合は ID <code>kato</code>）</div>
+          <div class="account">ログイン用のメールアドレスとパスワードは、別途お送りしています。</div>
           <span class="go">管理画面を開く</span>
         </a>
-        <a class="entry" href="checkin.html#demo-yamada-hanako">
+        <a class="entry" href="checkin.html#demo-yamada-hanako-sample">
           <div class="tag">お客様用</div>
           <div class="name">記録フォーム</div>
           <p class="desc">「山田 花子様」に届く専用URLの例です。お名前を入力しなくても、開くだけで本人の記録になります。</p>
@@ -112,7 +112,7 @@
           <li>管理画面にログインし、ホームの「優先確認リスト」を見ます。未回答が続いている方や、相談が書き込まれた方が上に並びます。</li>
           <li>山田 花子さんを開き、今日の記録・グラフ・日別の表に反映されていることを確認します。</li>
           <li>もう一度記録フォームで同じ日を送り直すと、管理画面の「過去の記録」で修正前の内容も確認できます。</li>
-          <li>「＋ 顧客登録」から新しいお客様を登録し、発行された専用URLを開いてみます。</li>
+          <li>「＋ 顧客登録」から新しいお客様を登録し、発行された専用URLを <strong>スマートフォンに送って</strong> 開いてみます。スマートフォンで記録すると、パソコンの管理画面に反映されます。</li>
         </ol>
       </div>
 
@@ -120,26 +120,14 @@
       <div class="note">
         <ul>
           <li>表示されているお客様と記録は、すべて架空のデータです。</li>
-          <li>入力した内容は、ご覧になっている端末のブラウザにだけ保存されます。他の方には見えません。</li>
-          <li>そのため、発行した専用URLを別の方のスマートフォンに送っても開けません。本番版では、お客様のスマートフォンから記録できます。</li>
+          <li>このプレビューは確認用のサーバーにつながっています。パソコンとスマートフォンなど、端末をまたいでお試しいただけます。</li>
+          <li><strong>実在のお客様のお名前や記録は入力しないでください。</strong> 確認用のため、本番と同じ保護の対象にはしていません。</li>
           <li>まだお決めいただいていない仕様は、仕様確認シートの推奨案で仮に作っています。</li>
+          <li>しばらく（7日ほど）どなたも開かないと、確認用サーバーが休止します。開けないときはご連絡ください。</li>
         </ul>
-        <button class="reset" type="button" id="reset">デモデータを最初の状態に戻す</button><span class="done" id="done" hidden>戻しました</span>
       </div>
 
       <footer>このページは確認用です。検索エンジンには表示されません。</footer>
     </main>
-    <script>
-      document.getElementById('reset').addEventListener('click', function () {
-        if (!confirm('入力した内容を消して、最初の状態に戻しますか？')) return;
-        try {
-          for (var i = localStorage.length - 1; i >= 0; i--) {
-            var k = localStorage.key(i);
-            if (k && (k.indexOf('diet-demo') === 0 || k.indexOf('checkin-draft:') === 0)) localStorage.removeItem(k);
-          }
-        } catch (e) {}
-        document.getElementById('done').hidden = false;
-      });
-    </script>
   </body>
 </html>
